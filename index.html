@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PALO PROJECTS – Coming Wednesday</title>
+  <!-- Font Awesome 6 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+  <!-- Google Font: Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet" />
+  <style>
+    /* ---------- RESET & BASE ---------- */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: #0b1a2b;
+      color: #f0f4fa;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 24px;
+    }
+
+    .coming-soon-container {
+      text-align: center;
+      max-width: 720px;
+      width: 100%;
+      padding: 40px 20px 50px;
+      background: #112233;
+      border-radius: 48px;
+      border: 1px solid #2a4058;
+      box-shadow: 0 30px 60px -20px rgba(0,0,0,0.8);
+      transition: all 0.2s ease;
+    }
+
+    /* ----- LOGO (large) ----- */
+    .logo-wrapper {
+      margin-bottom: 28px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .logo-wrapper img {
+      max-width: 220px;
+      width: 100%;
+      height: auto;
+      border-radius: 20px;
+      background: #ffffff;
+      padding: 12px 16px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+      border: 1px solid #2a4058;
+      transition: transform 0.2s ease;
+    }
+    .logo-wrapper img:hover {
+      transform: scale(1.02);
+    }
+    /* fallback if image fails */
+    .logo-fallback {
+      display: none;
+      font-size: 4rem;
+      color: #b8860b;
+      background: #1f3348;
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      align-items: center;
+      justify-content: center;
+      border: 2px solid #b8860b;
+    }
+
+    /* ----- TITLE ----- */
+    .main-title {
+      font-size: 2.4rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      color: #ffffff;
+      margin-bottom: 8px;
+    }
+    .main-title span {
+      color: #b8860b;
+    }
+    .sub-title {
+      font-size: 1.1rem;
+      color: #b0c4d8;
+      font-weight: 400;
+      margin-bottom: 32px;
+      letter-spacing: 0.3px;
+    }
+    .sub-title i {
+      color: #b8860b;
+      margin-right: 6px;
+    }
+
+    /* ----- COUNTDOWN (clean, bold) ----- */
+    .countdown-grid {
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+      flex-wrap: wrap;
+      margin-bottom: 28px;
+    }
+    .time-block {
+      background: #1f3348;
+      border-radius: 20px;
+      padding: 12px 16px 8px;
+      min-width: 80px;
+      border: 1px solid #2f4a62;
+      box-shadow: inset 0 2px 8px rgba(0,0,0,0.3);
+    }
+    .time-block .number {
+      font-size: 3.2rem;
+      font-weight: 700;
+      color: #ffffff;
+      line-height: 1.1;
+      letter-spacing: 2px;
+      display: block;
+    }
+    .time-block .label {
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      color: #8aa6c0;
+      letter-spacing: 1.5px;
+      font-weight: 500;
+      margin-top: 2px;
+    }
+    .separator {
+      font-size: 2.8rem;
+      color: #b8860b;
+      font-weight: 300;
+      align-self: center;
+      padding-bottom: 12px;
+    }
+
+    /* ----- MESSAGE / STATUS ----- */
+    .status-message {
+      font-size: 1.1rem;
+      font-weight: 500;
+      color: #d4b067;
+      background: rgba(184, 134, 11, 0.08);
+      padding: 10px 24px;
+      border-radius: 40px;
+      display: inline-block;
+      border: 1px solid #b8860b40;
+    }
+    .status-message i {
+      margin-right: 8px;
+      color: #b8860b;
+    }
+    .status-message.live {
+      color: #7bc96a;
+      border-color: #7bc96a80;
+      background: rgba(123, 201, 106, 0.08);
+    }
+    .status-message.live i {
+      color: #7bc96a;
+    }
+
+    /* small note */
+    .footnote {
+      margin-top: 28px;
+      font-size: 0.8rem;
+      color: #5a7a94;
+      letter-spacing: 0.3px;
+    }
+    .footnote i {
+      color: #b8860b;
+      margin: 0 4px;
+    }
+
+    /* ---------- RESPONSIVE ---------- */
+    @media (max-width: 600px) {
+      .coming-soon-container {
+        padding: 28px 16px 36px;
+        border-radius: 32px;
+      }
+      .main-title {
+        font-size: 1.8rem;
+      }
+      .sub-title {
+        font-size: 0.95rem;
+        margin-bottom: 24px;
+      }
+      .logo-wrapper img {
+        max-width: 150px;
+        padding: 10px 14px;
+      }
+      .time-block {
+        min-width: 64px;
+        padding: 8px 10px 6px;
+      }
+      .time-block .number {
+        font-size: 2.4rem;
+      }
+      .separator {
+        font-size: 2rem;
+        padding-bottom: 6px;
+      }
+      .countdown-grid {
+        gap: 10px;
+      }
+    }
+
+    @media (max-width: 420px) {
+      .time-block {
+        min-width: 54px;
+        padding: 6px 6px 4px;
+      }
+      .time-block .number {
+        font-size: 1.8rem;
+      }
+      .separator {
+        font-size: 1.4rem;
+      }
+      .countdown-grid {
+        gap: 6px;
+      }
+      .main-title {
+        font-size: 1.5rem;
+      }
+      .contact-us{
+        padding: 50px;
+      }
+    
+    }
+  </style>
+</head>
+<body>
+
+<div class="coming-soon-container">
+  
+  <!-- LOGO (replace src with your actual logo file) -->
+  <div class="logo-wrapper">
+    <img src="images/Screenshot 2026-06-17 163356.png" alt="PALO PROJECTS logo" id="mainLogo" onerror="this.style.display='none'; document.getElementById('fallbackLogo').style.display='flex';" />
+    <div class="logo-fallback" id="fallbackLogo">
+      <i class="fas fa-building"></i>
+    </div>
+  </div>
+
+  <!-- TITLE -->
+  <h1 class="main-title">PALO <span>PROJECTS</span></h1>
+  <p class="sub-title"><i class="fas fa-rocket"></i> Launching on Wednesday</p>
+
+  <!-- COUNTDOWN -->
+  <div class="countdown-grid" id="countdownGrid">
+    <div class="time-block">
+      <span class="number" id="days">00</span>
+      <span class="label">Days</span>
+    </div>
+    <span class="separator">:</span>
+    <div class="time-block">
+      <span class="number" id="hours">00</span>
+      <span class="label">Hours</span>
+    </div>
+    <span class="separator">:</span>
+    <div class="time-block">
+      <span class="number" id="minutes">00</span>
+      <span class="label">Minutes</span>
+    </div>
+    <span class="separator">:</span>
+    <div class="time-block">
+      <span class="number" id="seconds">00</span>
+      <span class="label">Seconds</span>
+    </div>
+  </div>
+
+  <!-- STATUS MESSAGE -->
+  <div class="status-message" id="statusMessage">
+    <i class="fas fa-hourglass-half"></i> Counting down to launch
+  </div>
+
+  <div class="footnote">
+    <i class="fas fa-calendar-alt"></i> Coming this Wednesday
+
+      <p>For more information contact </p><br>
+   <i class="fas fa-envelope"></i><a style=color:#edf3fa  href="emailto:info@paloprojects.co.za"> info@paloprojects.co.za</a>
+
+  </div>
+</div>
+<div class ="contact-us">
+ 
+</div>
+
+<!-- ========== JAVASCRIPT: COUNTDOWN ========== -->
+<script>
+  (function() {
+    // ----- target: next Wednesday at 23:59:59 -----
+    function getNextWednesday() {
+      const now = new Date();
+      const day = now.getDay(); // 0=Sun, 3=Wed
+      let diff = (day <= 3) ? 3 - day : 10 - day;
+      // if today is Wednesday but we want next Wednesday if past target
+      const target = new Date(now);
+      target.setDate(now.getDate() + diff);
+      target.setHours(23, 59, 59, 0);
+      // if it's Wednesday and time is already past 23:59:59, move to next Wed
+      if (day === 3 && now > target) {
+        target.setDate(target.getDate() + 7);
+      }
+      return target;
+    }
+
+    const targetDate = getNextWednesday();
+
+    const daysEl = document.getElementById('days');
+    const hoursEl = document.getElementById('hours');
+    const minutesEl = document.getElementById('minutes');
+    const secondsEl = document.getElementById('seconds');
+    const statusMsg = document.getElementById('statusMessage');
+
+    function updateCountdown() {
+      const now = new Date().getTime();
+      const distance = targetDate.getTime() - now;
+
+      if (distance < 0) {
+        // countdown finished
+        daysEl.textContent = '00';
+        hoursEl.textContent = '00';
+        minutesEl.textContent = '00';
+        secondsEl.textContent = '00';
+        statusMsg.innerHTML = '<i class="fas fa-check-circle"></i> Website is now live!';
+        statusMsg.classList.add('live');
+        return;
+      }
+
+      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+      daysEl.textContent = String(days).padStart(2, '0');
+      hoursEl.textContent = String(hours).padStart(2, '0');
+      minutesEl.textContent = String(minutes).padStart(2, '0');
+      secondsEl.textContent = String(seconds).padStart(2, '0');
+
+      // update status message with day hint
+      if (days === 0) {
+        statusMsg.innerHTML = '<i class="fas fa-clock"></i> Launching today!';
+      } else if (days === 1) {
+        statusMsg.innerHTML = '<i class="fas fa-hourglass-start"></i> 1 day to go!';
+      } else {
+        statusMsg.innerHTML = '<i class="fas fa-hourglass-half"></i> ' + days + ' days to go';
+      }
+    }
+
+    updateCountdown();
+    setInterval(updateCountdown, 1000);
+
+    // ----- logo fallback (already handled in HTML, but keep for safety) -----
+    const logoImg = document.getElementById('mainLogo');
+    const fallback = document.getElementById('fallbackLogo');
+    if (logoImg) {
+      logoImg.addEventListener('error', function() {
+        this.style.display = 'none';
+        if (fallback) fallback.style.display = 'flex';
+      });
+    }
+  })();
+</script>
+
+</body>
+</html>
